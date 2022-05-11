@@ -15,6 +15,8 @@ import openpyxl.styles.numbers
 import pandas as pd
 from yahoo_auction_auto import YahooAuction, cookie, info
 
+__version__ = "0.1.0"
+
 
 APPNAME = "ヤフオク!在庫表作成アプリ"
 APPDIR = pathlib.Path(click.get_app_dir(APPNAME, roaming=False))
@@ -48,6 +50,7 @@ LOGDIR = APPDIR / "logs"
     is_flag=True,
     help="作成されたExcelファイルを開く"
 )
+@click.version_option(version=__version__, prog_name=APPNAME)
 def app(
     username: str,
     cookiefile: str,
